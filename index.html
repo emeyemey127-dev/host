@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS Graduate Portfolio | Graphical Resume</title>
+    <!-- Load Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font family -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" xintegrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0jM4oP2wN+oW5e2O9VvS1JtJ5f1n9r8Q8lD7L4J6Cj8T2zD6f+5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A0A0A; /* Very dark background */
+        }
+        .resume-container {
+            background-color: #ffffff; /* White paper background for the main document area */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+        .section-highlight {
+            background-color: #FFEB3B; /* Bright yellow highlight */
+            padding: 2px 8px;
+            font-weight: 700;
+            line-height: 1;
+            display: inline-block;
+            transform: skew(-10deg);
+        }
+        .section-title-wrapper {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        /* Custom timeline style */
+        .timeline-item {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 2rem;
+            border-left: 1px solid #e5e5e5;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background-color: #000000;
+            border: 2px solid #FFEB3B; /* Yellow border for the dot */
+            border-radius: 50%;
+        }
+        /* Skills grid box styles */
+        .skill-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            aspect-ratio: 1 / 1; /* Make skill boxes square */
+            text-align: center;
+        }
+        /* Geometric shapes for Area of Expertise - using CSS for replication */
+        .shape-container {
+            position: relative;
+            height: 250px;
+            margin-bottom: 2rem;
+        }
+        .shape {
+            position: absolute;
+            opacity: 0.9;
+            color: #1A1A1A; /* Text color inside shapes */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            writing-mode: horizontal-tb; /* Ensure text is horizontal */
+        }
+        /* Shape 1: Orange/Brown Rectangle */
+        .shape-1 {
+            background-color: #E2B06F;
+            width: 100px;
+            height: 40px;
+            top: 20px;
+            left: 10px;
+            transform: skewX(-15deg);
+        }
+        /* Shape 2: Green Circle */
+        .shape-2 {
+            background-color: #92D38B;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            top: 50px;
+            right: 0px;
+        }
+        /* Shape 3: Pink Triangle */
+        .shape-3 {
+            background-color: #F89B9B;
+            width: 0;
+            height: 0;
+            border-left: 60px solid transparent;
+            border-right: 60px solid transparent;
+            border-bottom: 150px solid #F89B9B;
+            top: 100px;
+            left: 40px;
+            transform: rotate(-10deg);
+        }
+        .shape-text {
+            position: absolute;
+            color: #1A1A1A;
+            z-index: 10;
+            pointer-events: none;
+            line-height: 1;
+        }
+
+    </style>
+</head>
+<body class="p-4 sm:p-8 md:p-12 lg:p-16">
+
+    <div class="max-w-6xl mx-auto resume-container min-h-screen p-6 md:p-10 lg:p-16">
+
+        <!-- HEADER SECTION (Name, Title, Details Box) -->
+        <header class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+
+            <!-- Left Column: Name and Image -->
+            <div class="md:col-span-2 flex items-center space-x-6">
+                <div class="w-24 h-24 sm:w-36 sm:h-36 rounded-lg overflow-hidden flex-shrink-0">
+                    <!-- Placeholder image matching the style -->
+                    <img src="https://placehold.co/150x150/0A0A0A/FFFFFF?text=CS+Grad" alt="Profile Picture" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-800">ARAVINDH A</h1>
+                    <p class="text-gray-600 mt-2 text-sm italic">
+                        I do create **Computer Science** solutions from data structures to full-stack applications through clean code and scalable architecture.
+                    </p>
+                    <!-- Small details box -->
+                    <div class="flex flex-wrap gap-x-4 gap-y-2 text-sm text-gray-600 mt-4 border-t border-gray-200 pt-3">
+                        <p class="flex items-center"><i class="fas fa-birthday-cake mr-2 text-yellow-600"></i> DOB 23.01.2001</p>
+                        <p class="flex items-center"><i class="fas fa-map-marker-alt mr-2 text-yellow-600"></i> LOC Thanjavur</p>
+                        <p class="flex items-center"><i class="fas fa-phone-alt mr-2 text-yellow-600"></i> +91 7904692069</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Contact Details / Handwritten Note Replication -->
+            <div class="md:col-span-1 bg-gray-50 p-4 rounded-lg border border-gray-200">
+                <p class="text-sm font-handwriting text-red-600 italic mb-4">
+                    Please don't hesitate to reach me if this portfolio doesn't provide enough clarification.
+                </p>
+                <div class="space-y-2 text-sm">
+                    <p class="text-gray-700 flex items-start">
+                        <i class="fab fa-linkedin contact-detail-icon text-red-600 mt-1"></i>
+                        <a href="#" class="hover:underline">https://linkedin.com/in/aravindh-a-608036224</a>
+                    </p>
+                    <p class="text-gray-700 flex items-start">
+                        <i class="fas fa-envelope contact-detail-icon text-red-600 mt-1"></i>
+                        <a href="mailto:yuviz0403@gmail.com" class="hover:underline">yuviz0403@gmail.com</a>
+                    </p>
+                    <p class="text-gray-700 flex items-start">
+                        <i class="fab fa-github contact-detail-icon text-red-600 mt-1"></i>
+                        <a href="https://github.com/your-cs-repo" class="hover:underline">https://github.com/your-cs-repo</a>
+                    </p>
+                </div>
+            </div>
+        </header>
+        
+        <hr class="my-6 border-gray-200">
+
+        <!-- MAIN TWO-COLUMN CONTENT AREA -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+            <!-- LEFT COLUMN: WORK EXPERIENCE & EDUCATION (Structured) -->
+            <div class="lg:col-span-2">
+
+                <!-- WORK EXPERIENCES -->
+                <div class="section-title-wrapper">
+                    <div class="section-highlight">Work Experiences</div>
+                </div>
+                <div class="space-y-6">
+                    <!-- Item 1 -->
+                    <div class="timeline-item">
+                        <p class="text-xs text-gray-500">Sep 2022 - Present · 1 yr</p>
+                        <h3 class="text-lg font-semibold text-gray-800">Software Engineer I</h3>
+                        <p class="text-sm font-medium text-gray-700">Tech Solutions Pvt Ltd · <span class="text-green-600">Full-time</span></p>
+                        <p class="text-xs text-gray-500">Bengaluru, Karnataka, India</p>
+                        <ul class="list-disc list-inside text-sm text-gray-600 mt-2">
+                            <li>Developed and maintained RESTful APIs using Node.js and Express.</li>
+                            <li>Implemented CI/CD pipelines using GitHub Actions, reducing deployment time by 20%.</li>
+                        </ul>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="timeline-item">
+                        <p class="text-xs text-gray-500">Jun 2022 - Aug 2022 · 3 mos</p>
+                        <h3 class="text-lg font-semibold text-gray-800">Junior Developer Intern</h3>
+                        <p class="text-sm font-medium text-gray-700">Digital Innovations · <span class="text-green-600">Full-time</span></p>
+                        <p class="text-xs text-gray-500">Bengaluru, Karnataka, India</p>
+                        <ul class="list-disc list-inside text-sm text-gray-600 mt-2">
+                            <li>Assisted in front-end development using React and Tailwind CSS.</li>
+                            <li>Conducted unit testing on core application modules.</li>
+                        </ul>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="timeline-item">
+                        <p class="text-xs text-gray-500">Jan 2022 - May 2022 · 5 mos</p>
+                        <h3 class="text-lg font-semibold text-gray-800">Data Analyst Intern</h3>
+                        <p class="text-sm font-medium text-gray-700">Everything Data · <span class="text-blue-600">Internship</span></p>
+                        <p class="text-xs text-gray-500">Bengaluru, Karnataka, India</p>
+                        <ul class="list-disc list-inside text-sm text-gray-600 mt-2">
+                            <li>Cleaned and visualized large datasets using Python and Pandas/Matplotlib.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- EDUCATION -->
+                <div class="section-title-wrapper mt-8">
+                    <div class="section-highlight">Education</div>
+                </div>
+                <div class="space-y-6">
+                    <!-- Item 1 -->
+                    <div class="timeline-item">
+                        <p class="text-xs text-gray-500">2019 - 2023</p>
+                        <h3 class="text-lg font-semibold text-gray-800">Vellore Institute of Technology</h3>
+                        <p class="text-sm font-medium text-gray-700">B.Tech Computer Science & Engineering · <span class="text-green-600">CGPA 8.57</span></p>
+                        <p class="text-xs text-gray-500">Vellore, Tamilnadu, India</p>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="timeline-item">
+                        <p class="text-xs text-gray-500">2017 - 2018</p>
+                        <h3 class="text-lg font-semibold text-gray-800">Sr Shanmuka Hr. Sec. School</h3>
+                        <p class="text-sm font-medium text-gray-700">Sr.Secondary School of Education · <span class="text-green-600">Pct 75%</span></p>
+                        <p class="text-xs text-gray-500">Manfargudi, Tamilnadu, India</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: AREA OF EXPERTISE & SOFTWARE SKILLS (Visual) -->
+            <div class="lg:col-span-1">
+
+                <!-- AREA OF EXPERTISE -->
+                <div class="section-title-wrapper">
+                    <div class="section-highlight">Area of Expertise</div>
+                </div>
+                <!-- Replicating the graphical shapes with text overlays -->
+                <div class="shape-container">
+                    
+                    <!-- Orange/Brown Rectangle -->
+                    <div class="shape shape-1"></div>
+                    <span class="shape-text" style="top: 30px; left: 20px;">
+                        <i class="fas fa-chart-line mr-1"></i> Data Analytics
+                    </span>
+
+                    <!-- Green Circle -->
+                    <div class="shape shape-2"></div>
+                    <span class="shape-text" style="top: 85px; right: 20px;">
+                        <i class="fas fa-cogs mr-1"></i> Backend Development
+                    </span>
+
+                    <!-- Pink Triangle -->
+                    <div class="shape shape-3"></div>
+                    <span class="shape-text" style="top: 170px; left: 45px; transform: rotate(-10deg);">
+                        <i class="fas fa-layer-group mr-1"></i> Full-Stack Design
+                    </span>
+                    
+                </div>
+                
+                <!-- SOFTWARE SKILLS -->
+                <div class="section-title-wrapper">
+                    <div class="section-highlight">Software Skills</div>
+                </div>
+
+                <!-- Replicating the colored skill boxes in a grid -->
+                <div class="grid grid-cols-3 gap-3">
+                    <!-- Row 1 -->
+                    <div class="skill-box bg-blue-700/80">
+                        <h4 class="text-4xl font-extrabold">Py</h4>
+                        <p class="text-xs mt-1">Python</p>
+                    </div>
+                    <div class="skill-box bg-red-700/80">
+                        <h4 class="text-4xl font-extrabold">Re</h4>
+                        <p class="text-xs mt-1">React.js</p>
+                    </div>
+                    <div class="skill-box bg-yellow-600/80">
+                        <h4 class="text-4xl font-extrabold">JS</h4>
+                        <p class="text-xs mt-1">JavaScript</p>
+                    </div>
+                    <!-- Row 2 -->
+                    <div class="skill-box bg-orange-700/80">
+                        <h4 class="text-4xl font-extrabold">No</h4>
+                        <p class="text-xs mt-1">Node.js</p>
+                    </div>
+                    <div class="skill-box bg-purple-700/80">
+                        <h4 class="text-4xl font-extrabold">SQL</h4>
+                        <p class="text-xs mt-1">SQL DBs</p>
+                    </div>
+                    <div class="skill-box bg-green-700/80">
+                        <h4 class="text-4xl font-extrabold">G</h4>
+                        <p class="text-xs mt-1">Git/GitHub</p>
+                    </div>
+                    <!-- Row 3 -->
+                    <div class="skill-box bg-indigo-700/80">
+                        <h4 class="text-4xl font-extrabold">AW</h4>
+                        <p class="text-xs mt-1">AWS</p>
+                    </div>
+                    <div class="skill-box bg-sky-700/80">
+                        <h4 class="text-4xl font-extrabold">TS</h4>
+                        <p class="text-xs mt-1">TypeScript</p>
+                    </div>
+                    <div class="skill-box bg-stone-700/80">
+                        <h4 class="text-4xl font-extrabold">Ds</h4>
+                        <p class="text-xs mt-1">Data Structs</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
